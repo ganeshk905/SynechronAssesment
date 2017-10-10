@@ -1,0 +1,18 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:SynechronAssesment="clr-namespace:SynechronAssesment" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="window" mc:Ignorable="d" x:Class="SynechronAssesment.View.SplashScreenView"
+    
+        Title="SplashScreenView" Height="385" Width="585"  WindowStartupLocation="CenterScreen" WindowStyle="None" ShowInTaskbar="False" Topmost="True" ResizeMode="NoResize">
+
+
+
+    <Grid>
+
+        <SynechronAssesment:OfferTextControl x:Name="OfferCtl">
+
+        </SynechronAssesment:OfferTextControl>
+        <SynechronAssesment:HeaderCtl x:Name="HeaderCtl"></SynechronAssesment:HeaderCtl>
+    </Grid>
+</Window>
