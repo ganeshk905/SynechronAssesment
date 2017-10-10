@@ -9,10 +9,25 @@
 
 
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFB9BBFF" Offset="0" />
+                <GradientStop Color="White" Offset="1" />
+                <GradientStop Color="White" Offset="0.72" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="150" Background="#00FFFFFF">
+            <Grid.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#00000000" Offset="0.283"/>
+                    <GradientStop Color="#00000000" Offset="0.778"/>
+                    <GradientStop Color="White" Offset="0.491"/>
+                </LinearGradientBrush>
+            </Grid.OpacityMask>
+            <SynechronAssesment:OfferTextControl></SynechronAssesment:OfferTextControl>
 
-        <SynechronAssesment:OfferTextControl x:Name="OfferCtl">
+        </Grid>
 
-        </SynechronAssesment:OfferTextControl>
-        <SynechronAssesment:HeaderCtl x:Name="HeaderCtl"></SynechronAssesment:HeaderCtl>
+        <SynechronAssesment:HeaderCtl></SynechronAssesment:HeaderCtl>
     </Grid>
 </Window>

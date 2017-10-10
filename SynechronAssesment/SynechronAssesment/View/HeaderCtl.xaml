@@ -20,7 +20,7 @@
                 <DropShadowEffect Color="#FF3E3E3E" Direction="201" Opacity="0.68" ShadowDepth="3" BlurRadius="6"/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock FontSize="16" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="250,82,53,0" Text="Welcomes You" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="134">
+        <TextBlock FontSize="16" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="59,78,57,-36" Text="Welcomes You" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="134">
             <TextBlock.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF797979" Direction="201" Opacity="0.68" ShadowDepth="3" />
             </TextBlock.Effect></TextBlock>
