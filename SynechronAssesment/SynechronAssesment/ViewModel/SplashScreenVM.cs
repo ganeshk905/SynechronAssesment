@@ -1,4 +1,5 @@
 ﻿using SynechronAssesment.HelperClasses;
+using SynechronAssesment.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,11 +47,15 @@ namespace SynechronAssesment.ViewModel
             return ListOffers;
         }
 
+        public SplashScreenVM(SplashScreenView view)
+        {
+            _view = view;
+        }
+
         public SplashScreenVM()
         {
 
         }
-
         private void TimerTick(object sender, EventArgs e)
         {
             SplashScreenOffersText = GetRandomOffersFromCollection();
@@ -66,7 +71,36 @@ namespace SynechronAssesment.ViewModel
             //  BeginStoryboard(Hideboard);
         }
 
+        SplashScreenView _view;
+        public SplashScreenView View
+        {
+            get { return _view; }
+            set
+            {
+                _view = value;
+                OnPropertyChanged("View");
+            }
+        }
 
+        public RelayCommand ShowMoreCommand
+        {
+            get
+            {
+                return new RelayCommand(ShowEnquiry, true);
+            }
+        }
+
+        private void ShowEnquiry()
+        {
+
+            MainWindowViewModel oMV = new MainWindowViewModel();
+
+            EnquiryWindow oEnquiryWindow = new EnquiryWindow();
+            oEnquiryWindow.DataContext = oMV;
+            oEnquiryWindow.Show();
+
+            _view.Close();
+        }
     }
 
 

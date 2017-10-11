@@ -1,4 +1,5 @@
 ﻿using SynechronAssesment.HelperClasses;
+using SynechronAssesment.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace SynechronAssesment.View
         public SplashScreenView()
         {
             InitializeComponent();
+            this.DataContext = new SplashScreenVM(this);
 
 
         }
