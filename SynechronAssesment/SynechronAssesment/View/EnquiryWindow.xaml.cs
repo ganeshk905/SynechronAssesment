@@ -30,5 +30,6 @@ namespace SynechronAssesment.View
                 MessageBox.Show(((MessageEventArgs)args).Message);
             };
         }
+
     }
 }

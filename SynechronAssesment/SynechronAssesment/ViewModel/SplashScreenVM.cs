@@ -97,9 +97,9 @@ namespace SynechronAssesment.ViewModel
 
             EnquiryWindow oEnquiryWindow = new EnquiryWindow();
             oEnquiryWindow.DataContext = oMV;
-            oEnquiryWindow.Show();
+            oEnquiryWindow.ShowDialog();
 
-            _view.Close();
+            //_view.Close();
         }
     }
 

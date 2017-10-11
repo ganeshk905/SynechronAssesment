@@ -19,9 +19,9 @@ namespace SynechronAssesment
     /// <summary>
     /// Interaction logic for PersonCollection.xaml
     /// </summary>
-    public partial class PersonCollection : UserControl
+    public partial class UserInformation : UserControl
     {
-        public PersonCollection()
+        public UserInformation()
         {
             InitializeComponent();
             

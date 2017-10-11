@@ -6,6 +6,29 @@
              xmlns:local="clr-namespace:SynechronAssesment"
              mc:Ignorable="d" 
              d:DesignHeight="62.704" d:DesignWidth="250">
+
+    <UserControl.Resources>
+        <Storyboard x:Key="OnMouseEnter1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="16"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="11"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="button">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF1AE8D5"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.602"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="button">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Grid>
         <TextBlock TextAlignment="Center" Margin="-18.5,5,-12.394,8.704" TextWrapping="Wrap" Text="State Bank-Our Bank" Foreground="White" FontWeight="Bold" FontSize="26" RenderTransformOrigin="10,0.5" d:LayoutOverrides="VerticalAlignment">
             <TextBlock.RenderTransform>
@@ -24,6 +47,15 @@
             <TextBlock.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF797979" Direction="201" Opacity="0.68" ShadowDepth="3" />
             </TextBlock.Effect></TextBlock>
+        <Button x:Name="button" Content="Get More Info!!" Command="{Binding ShowMoreCommand}" Margin="478,0,0,62" FontSize="10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
 
+
+        </Button>
     </Grid>
 </UserControl>

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace SynechronAssesment.Model
 {
-    public class PersonDB:DbContext
+    public class InformationCaptureDB:DbContext
     {
-        public PersonDB():base("name=DefaultConnection")
+        public InformationCaptureDB():base("name=DefaultConnection")
         {
 
         }
 
-        public DbSet<Person> Person { get; set; }
+        public DbSet<InformationCapture> Person { get; set; }
     }
 }

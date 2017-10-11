@@ -1,6 +1,7 @@
 ﻿
 using SynechronAssesment.HelperClasses;
 using SynechronAssesment.Model;
+using SynechronAssesment.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,16 +14,30 @@ namespace SynechronAssesment.ViewModel
     public class MainWindowViewModel : ViewModelBase
     {
         Business _business;
-        private Person _person;
+        private InformationCapture _person;
         public EventHandler ShowMessageBox = delegate { };
+
         public MainWindowViewModel()
         {
+            AddPerson();
             _business = new Business();
-            PersonCollection = new ObservableCollection<Person>(_business.Get());
+            PersonCollection = new ObservableCollection<InformationCapture>(_business.Get());
+
         }
 
-        private ObservableCollection<Person> personCollection;
-        public ObservableCollection<Person> PersonCollection
+        EnquiryWindow _view;
+        public EnquiryWindow View
+        {
+            get { return _view; }
+            set
+            {
+                _view = value;
+                OnPropertyChanged("View");
+            }
+        }
+
+        private ObservableCollection<InformationCapture> personCollection;
+        public ObservableCollection<InformationCapture> PersonCollection
         {
             get { return personCollection; }
             set
@@ -31,7 +46,7 @@ namespace SynechronAssesment.ViewModel
                 OnPropertyChanged("PersonCollection");
             }
         }
-        public Person SelectedPerson
+        public InformationCapture SelectedPerson
         {
             get
             {
@@ -53,11 +68,12 @@ namespace SynechronAssesment.ViewModel
             }
         }
 
+
         private void AddPerson()
         {
             try
             {
-                SelectedPerson = new Person();
+                SelectedPerson = new InformationCapture();
             }
             catch (Exception ex)
             {
@@ -80,11 +96,12 @@ namespace SynechronAssesment.ViewModel
         {
             try
             {
+
                 _business.Update(SelectedPerson);
-                PersonCollection = new ObservableCollection<Person>(_business.Get());
+                PersonCollection = new ObservableCollection<InformationCapture>(_business.Get());
                 ShowMessageBox(this, new MessageEventArgs()
                 {
-                    Message = "Changes are saved !"
+                    Message = "Information Saved Successfully!! \nPlease check your email for more offers"
                 });
             }
             catch (Exception ex)

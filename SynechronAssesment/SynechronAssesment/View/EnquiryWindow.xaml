@@ -6,8 +6,41 @@
         xmlns:local="clr-namespace:SynechronAssesment.View"
         xmlns:View="clr-namespace:SynechronAssesment"
         mc:Ignorable="d"
-        Title="EnquiryWindow" Height="300" Width="300">
+         Title="User Information" Height="240.44" Width="439.716"  WindowStartupLocation="CenterScreen"  ShowInTaskbar="False" Topmost="True" ResizeMode="NoResize">
+
+
     <Grid>
-        <View:PersonCollection></View:PersonCollection>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFB9BBFF" Offset="0" />
+                <GradientStop Color="White" Offset="1" />
+                <GradientStop Color="White" Offset="0.72" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="179" Background="#00FFFFFF" Margin="139,0,147,0">
+
+            <Grid.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#00000000" Offset="0.283"/>
+                    <GradientStop Color="#00000000" Offset="0.778"/>
+                    <GradientStop Color="White" Offset="0.491"/>
+                </LinearGradientBrush>
+            </Grid.OpacityMask>
+
+
+
+
+        </Grid>
+        <View:UserInformation RenderTransformOrigin="0.5,0.5" Margin="99,11,0,0" HorizontalAlignment="Left" Width="298" Height="192" VerticalAlignment="Top">
+            <View:UserInformation.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.095"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </View:UserInformation.RenderTransform>
+        </View:UserInformation>
     </Grid>
 </Window>

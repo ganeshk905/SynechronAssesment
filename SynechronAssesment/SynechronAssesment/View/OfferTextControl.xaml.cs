@@ -58,11 +58,19 @@ namespace SynechronAssesment
             if (!_backgroundWorker.IsBusy)
                 _backgroundWorker.RunWorkerAsync(ssvm.AddOffersinList().ToList());
 
+
+
+        }
+
+        private void ShowOfferScroll()
+        {
+
         }
 
         private Object thisLock = new Object();
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
+
 
             List<string> list = (List<string>)e.Argument;
             Parallel.ForEach(list, item =>
@@ -70,13 +78,12 @@ namespace SynechronAssesment
                 lock (thisLock)
                 {
 
-                    Dispatcher.Invoke(new Action(() => { showDelegate(item.ToString()); }));
+                    Dispatcher.BeginInvoke(new Action(() => { showDelegate(item.ToString()); }));
                     Thread.Sleep(2000);
                 }
 
             }
            );
-
         }
     }
 }

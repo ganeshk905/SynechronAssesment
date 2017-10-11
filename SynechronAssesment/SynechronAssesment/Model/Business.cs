@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,34 +9,35 @@ namespace SynechronAssesment.Model
 {
     public class Business
     {
-        PersonDB _dbContext = null;
+        InformationCaptureDB _dbContext = null;
         public Business()
         {
             AppDomain.CurrentDomain.SetData("DataDirectory",
-             "C:\\MSDE\\gulathar\\GitRepos");
-            _dbContext = new PersonDB();
+             Environment.CurrentDirectory);
+            _dbContext = new InformationCaptureDB();
         }
 
-        internal IEnumerable<Person> Get()
+        internal IEnumerable<InformationCapture> Get()
         {
             return _dbContext.Person.ToList();
         }
 
-        internal void Delete(Person person)
+        internal void Delete(InformationCapture person)
         {
             _dbContext.Person.Remove(person);
         }
 
-        internal void Update(Person updatedPerson)
+        internal void Update(InformationCapture updatedPerson)
         {
             CheckValidations(updatedPerson);
             if (updatedPerson.Id > 0)
             {
-                Person selectedPerson = _dbContext.Person.First(p => p.Id == updatedPerson.Id);
+                InformationCapture selectedPerson = _dbContext.Person.First(p => p.Id == updatedPerson.Id);
                 selectedPerson.FirstName = updatedPerson.FirstName;
                 selectedPerson.LastName = updatedPerson.LastName;
                 selectedPerson.CityOfResidence = updatedPerson.CityOfResidence;
-                selectedPerson.Profession = updatedPerson.Profession;
+                // selectedPerson.Profession = updatedPerson.Profession;
+                selectedPerson.Email = updatedPerson.Email;
             }
             else
             {
@@ -45,12 +47,9 @@ namespace SynechronAssesment.Model
             _dbContext.SaveChanges();
         }
 
-        private void CheckValidations(Person person)
+        private void CheckValidations(InformationCapture person)
         {
-            if(person == null)
-            {
-                throw new ArgumentNullException("Person", "Please select record from Grid or Add New");
-            }
+
 
             if (string.IsNullOrEmpty(person.FirstName))
             {
@@ -60,9 +59,10 @@ namespace SynechronAssesment.Model
             {
                 throw new ArgumentNullException("Last Name", "Please enter LastName");
             }
-            else if ((int)person.Profession == -1)
+
+            else if (string.IsNullOrEmpty(person.Email))
             {
-                throw new ArgumentNullException("Profession", "Please enter Profession");
+                throw new ArgumentNullException("Email", "Please enter Email");
             }
         }
     }
