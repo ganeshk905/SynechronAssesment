@@ -67,15 +67,6 @@
     <Compile Include="HelperClasses\RelayCommand.cs" />
     <Compile Include="HelperClasses\Utility.cs" />
     <Compile Include="InformationDB.cs" />
-    <Compile Include="Migrations\201710120759169_InitialCreate.cs" />
-    <Compile Include="Migrations\201710120759169_InitialCreate.Designer.cs">
-      <DependentUpon>201710120759169_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710121152160_MessageText.cs" />
-    <Compile Include="Migrations\201710121152160_MessageText.Designer.cs">
-      <DependentUpon>201710121152160_MessageText.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Business.cs" />
     <Compile Include="Model\InformationCapture.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
@@ -148,17 +139,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201710120759169_InitialCreate.resx">
-      <DependentUpon>201710120759169_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710121152160_MessageText.resx">
-      <DependentUpon>201710121152160_MessageText.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
