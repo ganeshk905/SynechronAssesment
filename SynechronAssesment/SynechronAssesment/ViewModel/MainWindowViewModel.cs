@@ -15,8 +15,18 @@ namespace SynechronAssesment.ViewModel
     {
         Business _business;
         private InformationCapture _person;
-        public EventHandler ShowMessageBox = delegate { };
+        // public EventHandler ShowMessageBox = delegate { };
 
+        private string _messageText;
+        public string MessageText
+        {
+            get { return _messageText; }
+            set
+            {
+                _messageText = value;
+                OnPropertyChanged("MessageText");
+            }
+        }
         public MainWindowViewModel()
         {
             AddPerson();
@@ -60,6 +70,8 @@ namespace SynechronAssesment.ViewModel
         }
 
 
+
+
         public RelayCommand Add
         {
             get
@@ -77,10 +89,11 @@ namespace SynechronAssesment.ViewModel
             }
             catch (Exception ex)
             {
-                ShowMessageBox(this, new MessageEventArgs()
-                {
-                    Message = ex.Message
-                });
+                //ShowMessageBox(this, new MessageEventArgs()
+                //{
+                //    Message = ex.Message
+                //});
+                MessageText = ex.Message;
             }
         }
 
@@ -99,17 +112,20 @@ namespace SynechronAssesment.ViewModel
 
                 _business.Update(SelectedPerson);
                 PersonCollection = new ObservableCollection<InformationCapture>(_business.Get());
-                ShowMessageBox(this, new MessageEventArgs()
-                {
-                    Message = "Information Saved Successfully!! \nPlease check your email for more offers"
-                });
+                //ShowMessageBox(this, new MessageEventArgs()
+                //{
+                //    Message = ""
+                //});
+
+                MessageText = "Information Saved Successfully!! \nPlease check your email for more offers \n You may close this window now";
             }
             catch (Exception ex)
             {
-                ShowMessageBox(this, new MessageEventArgs()
-                {
-                    Message = ex.Message
-                });
+                //ShowMessageBox(this, new MessageEventArgs()
+                //{
+                //    Message = ex.Message
+                //});
+                MessageText = ex.Message;
             }
 
         }

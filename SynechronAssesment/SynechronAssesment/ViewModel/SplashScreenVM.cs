@@ -16,7 +16,7 @@ namespace SynechronAssesment.ViewModel
     class SplashScreenVM : ViewModelBase, INotifyPropertyChanged
     {
         private string splashScreenOffersText = "Initializing...Banking App";
-        List<string> ListOffers = new List<string> { "Get More ROI", "New Saving Scheme", "Get Better Future using SIP", "Pension Scheme Launced" };
+        List<string> ListOffers = new List<string> { "Get More ROI", "New Saving Scheme", "Get Better Future using SIP", "Pension Scheme Launced","Easy Home Loans" ,"Morgage Facility Avialable" ,"High Interest Paid" };
 
 
         public string SplashScreenOffersText

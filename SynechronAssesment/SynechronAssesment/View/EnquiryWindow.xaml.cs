@@ -25,10 +25,7 @@ namespace SynechronAssesment.View
         {
             InitializeComponent();
             this.DataContext = new MainWindowViewModel();
-            (this.DataContext as MainWindowViewModel).ShowMessageBox += delegate (object sender, EventArgs args)
-            {
-                MessageBox.Show(((MessageEventArgs)args).Message);
-            };
+
         }
 
     }

@@ -9,12 +9,12 @@ namespace SynechronAssesment.Model
 {
     public class Business
     {
-        InformationCaptureDB _dbContext = null;
+        InformationDB _dbContext = null;
         public Business()
         {
-            AppDomain.CurrentDomain.SetData("DataDirectory",
+            AppDomain.CurrentDomain.SetData("InformationDB",
              Environment.CurrentDirectory);
-            _dbContext = new InformationCaptureDB();
+            _dbContext = new InformationDB();
         }
 
         internal IEnumerable<InformationCapture> Get()
